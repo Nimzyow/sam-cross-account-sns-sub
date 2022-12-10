@@ -1,0 +1,66 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: >
+    SNS subscription to send deployment notifications to slack channel
+
+    Sample SAM Template for deployment visibility via slack
+Globals:
+    Function:
+        Timeout: 10
+        MemorySize: 1024
+        Runtime: nodejs16.x
+        Architectures:
+            - x86_64
+
+Parameters:
+    EnvType:
+        Description: Environment type.
+        Default: sandbox
+        Type: String
+        AllowedValues:
+            - sandbox
+            - staging
+            - production
+        ConstraintDescription: must specify sandbox or staging or production.
+
+Mappings:
+    SNSTopic:
+        arn:
+            sandbox: <arn of SNS topic in sandbox account>
+            staging: <arn of SNS topic in  staging account>
+            production: <arn of SNS topic in  production account>
+        slackWebHookUrl:
+            sandbox: <slack webhook URL to send to specific channel whenever notification is triggered in sandbox SNS topic>
+            staging: <slack webhook URL to send to specific channel whenever notification is triggered in staging SNS topic>
+            production: <slack webhook URL to send to specific channel whenever notification is triggered in production SNS topic>
+
+Resources:
+    DeploymentNotifier:
+        Type: AWS::Serverless::Function
+        Properties:
+            FunctionName: DeploymentNotifier
+            CodeUri: src/functions/deployment-notifier/
+            Handler: deployment-notifier.lambdaHandler
+            Events:
+                TopicSubscription:
+                    Type: SNS
+                    Properties:
+                        Topic: !FindInMap [SNSTopic, arn, !Ref EnvType]
+            Environment:
+                Variables:
+                    slackWebHookUrl: !FindInMap [SNSTopic, slackWebHookUrl, !Ref EnvType]
+        Metadata: # Manage esbuild properties
+            BuildMethod: esbuild
+            BuildProperties:
+                Minify: true
+                Target: "es2020"
+                Sourcemap: true
+                EntryPoints:
+                    - deployment-notifier.ts
+
+    TopicSubscription:
+        Type: AWS::SNS::Subscription
+        Properties:
+            Endpoint: !GetAtt DeploymentNotifier.Arn
+            Protocol: lambda
+            TopicArn: !FindInMap [SNSTopic, arn, !Ref EnvType]

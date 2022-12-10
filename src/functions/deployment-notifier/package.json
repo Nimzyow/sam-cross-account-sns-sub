@@ -1,0 +1,12 @@
+{
+    "name": "user-lookup",
+    "version": "1.0.0",
+    "description": "A simple user lookup",
+    "author": "Nima Soufiani",
+    "dependencies": {
+        "esbuild": "^0.14.14",
+        "axios": "1.1.3",
+        "@aws-sdk/client-sqs": "3.40.0",
+        "@aws-sdk/client-ssm": "3.40.0"
+    }
+}

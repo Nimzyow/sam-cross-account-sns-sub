@@ -1,0 +1,22 @@
+{
+    "Records": [
+        {
+            "EventSource": "aws:sns",
+            "EventVersion": "1.0",
+            "EventSubscriptionArn": "arn:aws:sns:eu-west-1:hgf56789963:amplify-d3odav7a703im0_prod:01b6a660-187e-4f9b-a6d1-2e544927346a",
+            "Sns": {
+                "Type": "Notification",
+                "MessageId": "503cee26-5a9c-5cfd-bfc9-b5f941b0232b",
+                "TopicArn": "arn:aws:sns:eu-west-1:764566uyikjhgh:amplify-dlihugfhcfgx56im0_production",
+                "Subject": null,
+                "Message": "\"Build notification from the AWS Amplify Console for app: https://prod.d3o5436789033im0.amplifyapp.com/. Your build status is STARTED. Go to https://console.aws.amazon.com/amplify/home?region=eu-west-1#duhgty657m0/prod/222 to view details on your build. \"",
+                "Timestamp": "2022-11-04T13:51:40.269Z",
+                "SignatureVersion": "1",
+                "Signature": "csMQtNVmadimDy69878yihuijklqNUOjAST8sf8h9XjHaB/MQyXdusM17+BimYOqIVfweDId94iVjgV4eC9t+HjUTSvlvvSF5zosqAjhr63otitSdmeG/N5Zj9zK323sdfsdgceZxSfML6EQO9vyGwwkXeKsdfdsfILvn1RPEXd9mzUXQ7kCq48fBDlWBfPQ7GRaa1ZZL/K55xS2Wsdfdsfsvk3g3y/IMV5pLXe/W5zwWxz0XWrw+2q4FLOqBUeMQYEsm1NoPOw2Jx0dH+ONo8FR0/BsyOa+q/aaZEonnujLEskktpJXJVqTo7TCsd2NamtopCbLv2rihCBg+A==",
+                "SigningCertUrl": "https://sns.eu-west-1.amazonaws.com/SimpleNotificationService-56e67fcb179423692625d385.pem",
+                "UnsubscribeUrl": "https://sns.eu-west-1.amazonaws.com/?Action=Unsubscribe&SubscriptionArn=arn:aws:sns:eu-west-1:3253969325345yuher7963:amplify-sa903j703im0_prod:01b6a660-187e-4f9b-a6d1-2e544927346a",
+                "MessageAttributes": {}
+            }
+        }
+    ]
+}

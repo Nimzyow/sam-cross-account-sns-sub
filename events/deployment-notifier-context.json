@@ -1,0 +1,10 @@
+{
+    "callbackWaitsForEmptyEventLoop": true,
+    "functionVersion": "$LATEST",
+    "functionName": "DeploymentNotifier",
+    "memoryLimitInMB": "1024",
+    "logGroupName": "/aws/lambda/DeploymentNotifier",
+    "logStreamName": "2022/11/04/[$LATEST]8806cefdaae840478252f74710b6ebbf",
+    "invokedFunctionArn": "arn:aws:lambda:eu-west-1:772891150177:function:DeploymentNotifier",
+    "awsRequestId": "7d2a14bf-4e4f-43c3-8a41-5a74e5bcc02b"
+}

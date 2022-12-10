@@ -1,0 +1,13 @@
+version = 0.1
+[default]
+
+[default.global.parameters]
+stack_name = "ripple-deployment-visibility"
+
+[default.sync.parameters]
+profile = "ripple_sandbox"
+parameter-overrides = "EnvType=sandbox"
+
+
+[default.logs.parameters]
+profile = "ripple_sandbox"
